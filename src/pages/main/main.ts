@@ -60,11 +60,22 @@ export class Main {
   //     image: "assets/img/ica-slidebox-img-2.png",
   //   }
   // ];
-
+  //currentIndex = 1;
   slideChanged() {
-    // let currentIndex = this.slides.getActiveIndex();
-    // this.title = this.markets[currentIndex].title;
-    // console.log("Current index is", currentIndex);
+    let currentIndex = this.slides.getActiveIndex();
+    console.log("Current index is", currentIndex);
+  }
+
+  changeSlide(index:number) {
+    this.slides.slideTo(index, 500);
+  }
+  getStyle(index:number) {
+    let currentIndex = this.slides.getActiveIndex();
+    if(currentIndex === index) {
+      return "white";
+    } else {
+      return "";
+    }
   }
 
   loadCompanies()  {
