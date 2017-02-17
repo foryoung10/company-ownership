@@ -3,16 +3,52 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Main</ion-title>
+    <ion-title></ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-<ion-list>
-  <ion-item *ngFor="let item of items">
-    {{ item }}
-  </ion-item>
-</ion-list>
+ <ion-slides pager (ionSlideDidChange)="slideChanged()">
+    <ion-slide *ngFor="let slide of markets">
+      <!-- <ion-toolbar>
+        <ion-buttons end>
+          <button ion-button color="primary">Skip</button>
+        </ion-buttons>
+      </ion-toolbar>
+      <img [src]="slide.image" class="slide-image"/>
+      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+      <p [innerHTML]="slide.description"></p> -->
+      <ion-grid>
+        <ion-row>
+            <ion-col width-100><h1>Oracle</h1></ion-col>
+            <div style=" position: absolute; top: 20px; right: 20px; color: #828595"><ion-icon name="information-circle"></ion-icon></div>
+        </ion-row>
+      </ion-grid>
+      <ion-card>
+        <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col width-60 class="text-left">Total</ion-col>
+              <ion-col width-40 class="text-right">5%</ion-col>
+            </ion-row>
+            
+            <ion-row>
+              <ion-col width-60 class="text-left">Last disclosed</ion-col>
+              <ion-col width-40 class="text-right">3%</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col width-60 class="text-left">Market value</ion-col>
+              <ion-col width-40 class="text-right">$1.1M</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col width-60 class="text-left">Shareholdings</ion-col>
+              <ion-col width-40 class="text-right">500,000</ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
 
+      </ion-card>
+      
+    </ion-slide>
+  </ion-slides>
 </ion-content>
