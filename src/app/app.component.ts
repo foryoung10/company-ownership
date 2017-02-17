@@ -1,9 +1,7 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { Nav, Platform, NavController } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
-import {Injectable} from '@angular/core';
 import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
 
 import { Main } from '../pages/main/main';
 import { Side } from '../pages/side/side';
