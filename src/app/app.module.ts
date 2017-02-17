@@ -5,6 +5,9 @@ import { Main } from '../pages/main/main';
 import { Side } from '../pages/side/side';
 import { Services } from '../providers/services';
 
+//import { ChartsModule } from 'ng2-charts/ng2-charts';
+//import { Chart } from 'chart.js/src/chart';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -13,6 +16,7 @@ import { Services } from '../providers/services';
   ],
   imports: [
     IonicModule.forRoot(MyApp)
+//    ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

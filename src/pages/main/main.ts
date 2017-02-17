@@ -1,13 +1,16 @@
-import { Component } from '@angular/core';
+
+import { Component, ViewChild } from '@angular/core';
 import {Injectable} from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Slides, ViewController } from 'ionic-angular';
 
 import { Company } from '../../models/company';
 
 import { Services } from '../../providers/services';
+
+
 
 
 
@@ -29,7 +32,7 @@ export class Main {
   //    this.companies = companies;
   //  }); //(rej) => {console.error("Could not load local data",rej)});
     this.CompanyName = navParams.get('CompanyName');
-
+  }
   //  ///console.log(this.CompanyName);
     //this.services.loadCompanies().subscribe(companies => { //      this.companies = companies;
     //  Main.companies = companies;
@@ -43,6 +46,28 @@ export class Main {
   //  console.log (this.company['TotalShares']);
 
 
+  @ViewChild(Slides) slides: Slides;
+
+
+  // title = "Public Market";
+
+  // markets = [
+  //   {
+  //     title: "Public Market",
+  //     description: "The <b>Ionic Component Documentation</b> showcases a number of useful components that are included out of the box with Ionic.",
+  //     image: "assets/img/ica-slidebox-img-1.png",
+  //   },
+  //   {
+  //     title: "Private Market",
+  //     description: "<b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.",
+  //     image: "assets/img/ica-slidebox-img-2.png",
+  //   }
+  // ];
+
+  slideChanged() {
+    // let currentIndex = this.slides.getActiveIndex();
+    // this.title = this.markets[currentIndex].title;
+    // console.log("Current index is", currentIndex);
   }
 
   loadCompanies()  {
@@ -71,4 +96,21 @@ export class Main {
       }
     }
   }
+
+  // // pei chart starts
+  // public pieChartLabels:string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
+  // public pieChartData:number[] = [300, 500, 100];
+  // public pieChartType:string = 'pie';
+  //
+  // // events
+  // public chartClicked(e:any):void {
+  //   console.log(e);
+  // }
+  //
+  // public chartHovered(e:any):void {
+  //   console.log(e);
+  // }
+
+  //pie chart end
+
 }
