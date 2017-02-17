@@ -33,7 +33,7 @@
               </ion-grid>
 
             </ion-row>
-            
+
             <ion-row class="buffer-bottom">
               <ion-col width-80 class="text-left text-medium">Last disclosed</ion-col>
               <ion-col width-20 class="text-right text-medium">3%</ion-col>
@@ -49,17 +49,18 @@
           </ion-grid>
       </ion-grid>
   </ion-slide>
-  <ion-slide>
-<!-- Pie chart -->
-      <div style="display: block">
-        <canvas baseChart
-                [data]="pieChartData"
-                [labels]="pieChartLabels"
-                [chartType]="pieChartType"
-                (chartHover)="chartHovered($event)"
-                (chartClick)="chartClicked($event)"></canvas>
-      </div>
-      <!-- Pie chart end-->
-    </ion-slide>
+
   </ion-slides>
 </ion-content>
+<!--
+<ion-slide>
+    <div style="display: block">
+      <canvas baseChart
+              [data]="pieChartData"
+              [labels]="pieChartLabels"
+              [chartType]="pieChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </ion-slide>
+-->
