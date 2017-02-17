@@ -34,13 +34,13 @@ export class Main {
   //  }); //(rej) => {console.error("Could not load local data",rej)});
     this.CompanyName = navParams.get('CompanyName');
     this.company = {
-      CompanyName : navParams.get('CompanyName'),
-      OwnerPercent: navParams.get('OwnerPercent'),
-      PublicOwn   : navParams.get('PublicOwn'),
-      PrivateOwn  : navParams.get('PrivateOwn'),
-      LatestDisclosed :  navParams.get('LatestDisclosed'),
-      MarketValueUSD :  navParams.get('MarketValueUSD'),
-      TotalShares    :  navParams.get('TotalShares')
+    CompanyName : navParams.get('CompanyName'),
+    OwnerPercent: navParams.get('OwnerPercent'),
+    PublicOwn   : navParams.get('PublicOwn'),
+    PrivateOwn  : navParams.get('PrivateOwn'),
+    LatestDisclosed :  navParams.get('LatestDisclosed'),
+    MarketValueUSD :  navParams.get('MarketValueUSD'),
+    TotalShares    :  navParams.get('TotalShares')
     } ;
   }
 
@@ -81,6 +81,7 @@ export class Main {
   ionViewDidLoad() {
     console.log('ionViewDidLoad UsersPage');
   }
+
 
 
   searchCompanies(CompanyName: string) {
