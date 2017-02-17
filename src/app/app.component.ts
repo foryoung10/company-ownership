@@ -1,23 +1,47 @@
-import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { Nav, Platform, NavController } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
+import { Http } from '@angular/http';
+import { FormControl } from '@angular/forms';
 
 import { Main } from '../pages/main/main';
 import { Side } from '../pages/side/side';
 
+import { Company } from '../models/company';
+import { Services } from '../providers/services';
+import 'rxjs/add/operator/debounceTime';
 
 @Component({
   templateUrl: 'app.html'
 })
-export class MyApp {
+export class MyApp implements AfterViewInit {
   @ViewChild(Nav) nav: Nav;
-
+  @ViewChild(Main) main: Main;
+  @ViewChild('myNav') navCtrl: NavController;
   rootPage: any = Main;
+  company: any;
+  searchTerm: string = '';
+  companies: Company[];
+  searchControl: FormControl;
+  searching: any = false;
+
+  ngAfterViewInit() {
+  //  this.http.get('build/json/company.json').map(res => res.json()).subscribe(companies => {
+  //      this.companies = companies;
+  //     }); //(rej) => {console.error("Could not load local data",rej)});
+    this.services.loadCompanies().subscribe(companies => { //      this.companies = companies;
+      this.companies = companies;
+       }); //(rej) => {console.error("Could not load local data",rej)});
+
+  }
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform) {
+  constructor(public platform: Platform, private http: Http, private services: Services) {
+    this.searchControl = new FormControl()
     this.initializeApp();
+
+
 
     // used for an example of ngFor and navigation
     this.pages = [
@@ -25,7 +49,8 @@ export class MyApp {
       { title: 'Side', component: Side }
     ];
 
-  }
+}
+
 
   initializeApp() {
     this.platform.ready().then(() => {
@@ -33,7 +58,35 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
       Splashscreen.hide();
+
     });
+  }
+
+  goToCompany(CompanyName: string,  OwnerPercent: number, PublicOwn: number, PrivateOwn: number,   LatestDisclosed: number, MarketValueUSD: number, TotalShares: number) {
+    console.log(CompanyName);
+    //this.main.goToCompany(CompanyName);
+    console.log(OwnerPercent, PublicOwn, PrivateOwn, LatestDisclosed, MarketValueUSD, TotalShares);
+    this.nav.push(Main, {CompanyName, OwnerPercent, PublicOwn, PrivateOwn, LatestDisclosed, MarketValueUSD, TotalShares});
+
+  }
+ionViewDidLoad() {
+    this.setFilteredCompanies();
+
+    this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
+      this.searching = false;
+      this.setFilteredCompanies();
+
+  });
+
+}
+
+  onSearchInput(){
+       this.searching = true;
+   }
+
+  setFilteredCompanies() {
+    this.companies = this.services.filterCompanies(this.searchTerm);
+
   }
 
   openPage(page) {
