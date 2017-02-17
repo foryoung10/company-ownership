@@ -13,10 +13,12 @@
         <ion-spinner></ion-spinner>
       </div>
       <ion-list>
+
         <button menuClose ion-item *ngFor="let company of companies" (click)="goToCompany(company.CompanyName, company.OwnerPercent, company.PublicOwn, company.PrivateOwn,
                                                                               company.LatestDisclosed, company.MarketValueUSD, company.TotalShares)">
-          {{ company.CompanyName }}
+              {{ company.CompanyName}}
         </button>
+
       </ion-list>
 
   </ion-content>
