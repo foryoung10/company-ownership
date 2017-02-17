@@ -14,3 +14,44 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+$bg-color: #2b3151;
+
+.fixed-content {
+	background-color:$bg-color;
+}
+.content {
+	background-color:$bg-color;
+	color: #fff;
+	font-family: sans-serif;
+}
+.header, .title {
+	background: #6a89c6;
+}
+
+.text-left {text-align: left;}
+.text-right {text-align: right;}
+.card {
+	margin: 12px 0 12px 0;
+	width: 100%;
+	border-radius: 4px;
+	background: #828595;
+	color: white;
+}
+.card, .card-header {
+	color: white;
+}
+
+.swiper-slide {
+	-webkit-align-items: flex-start ;
+	align-items: flex-start;
+}
+
+.content-ios hr {
+	color: #fff;
+	width: 100%;
+	height: 1px;
+	padding: 0;
+	margin: 2px 0 0 2px;
+	background-color: white;
+}
