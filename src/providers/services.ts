@@ -13,24 +13,13 @@ import { Company } from '../models/company';
 @Injectable()
 export class Services {
 
-  companies: any;
 
   constructor(public http: Http) {
-    this.loadCompanies().subscribe(companies => {
-    this.companies = companies});
 
   }
   // Load all github users
   loadCompanies(): Observable<Company[]>  {
-   return this.http.get('json/company.json').map(res =><Company[]>res.json());
+   return this.http.get('build/json/company.json').map(res =><Company[]>res.json());
  }
-
- filterCompanies(searchTerm: string){
-      console.log(searchTerm);
-
-       return this.companies.filter((company) => {
-           return company.CompanyName.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
-       });
-     }
 
 }
