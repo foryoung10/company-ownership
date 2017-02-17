@@ -1,8 +1,44 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+  <ion-navbar style="padding-top: 28px; padding-bottom: 20px;">
+    <button ion-button icon-only menuToggle>
+      <div>
+        <ion-icon name='search' class="big-icon"></ion-icon>
+        <br>
+        <label class="small">Search</label>
+        </div>
     </button>
+
+    <ion-buttons >
+      <button ion-button icon-only (click)="changeSlide(0)" [style.color]="getStyle(0)">
+        <div>
+          <ion-icon name='eye' class="big-icon"></ion-icon>
+          <br>
+          <label class="small">Overview</label>
+        </div>
+      </button>
+      <button ion-button icon-only (click)="changeSlide(1)" [style.color]="getStyle(1)">
+        <div>
+          <ion-icon name='trending-up' class="big-icon"></ion-icon>
+          <br>
+          <label class="small">Who Owns</label>
+        </div>
+      </button>
+      <button ion-button icon-only (click)="changeSlide(2)" [style.color]="getStyle(2)">
+        <div>
+          <ion-icon name='podium' class="big-icon"></ion-icon>
+          <br>
+          <label class="small">Peers</label>
+        </div>
+      </button>
+
+      <button ion-button icon-only (click)="changeSlide(3)" [style.color]="getStyle(3)">
+        <div>
+          <ion-icon name='paper' class="big-icon"></ion-icon>
+          <br>
+          <label class="small">News</label>
+        </div>
+      </button>
+    </ion-buttons>
     <ion-title></ion-title>
   </ion-navbar>
 </ion-header>
@@ -17,7 +53,7 @@
     <ion-grid>
         <ion-grid>
             <ion-row>
-              <ion-col width-60 class="text-left text-large ">Total</ion-col>
+              <ion-col width-60 class="text-left text-large">Total</ion-col>
               <ion-col width-40 class="text-right text-large">5%</ion-col>
             </ion-row>
             <ion-row  class="buffer-bottom">
@@ -49,7 +85,15 @@
           </ion-grid>
       </ion-grid>
   </ion-slide>
-
+  <ion-slide>
+    Who Owns
+  </ion-slide>
+  <ion-slide>
+    Peers
+  </ion-slide>
+  <ion-slide>
+    News
+  </ion-slide>
   </ion-slides>
 </ion-content>
 <!--
