@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Slides, ViewController } from 'ionic-angular';
 
 
+
 @Component({
   selector: 'Main',
   templateUrl: 'main.html'
@@ -12,25 +13,42 @@ export class Main {
     
   }
 
-  title = "Public Market";
+  // title = "Public Market";
 
-  markets = [
-    {
-      title: "Public Market",
-      description: "The <b>Ionic Component Documentation</b> showcases a number of useful components that are included out of the box with Ionic.",
-      image: "assets/img/ica-slidebox-img-1.png",
-    },
-    {
-      title: "Private Market",
-      description: "<b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.",
-      image: "assets/img/ica-slidebox-img-2.png",
-    }
-  ];
+  // markets = [
+  //   {
+  //     title: "Public Market",
+  //     description: "The <b>Ionic Component Documentation</b> showcases a number of useful components that are included out of the box with Ionic.",
+  //     image: "assets/img/ica-slidebox-img-1.png",
+  //   },
+  //   {
+  //     title: "Private Market",
+  //     description: "<b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.",
+  //     image: "assets/img/ica-slidebox-img-2.png",
+  //   }
+  // ];
 
   slideChanged() {
-    let currentIndex = this.slides.getActiveIndex();
-    this.title = this.markets[currentIndex].title;
-    console.log("Current index is", currentIndex);
+    // let currentIndex = this.slides.getActiveIndex();
+    // this.title = this.markets[currentIndex].title;
+    // console.log("Current index is", currentIndex);
   }
+
+
+  // pei chart starts
+  public pieChartLabels:string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
+  public pieChartData:number[] = [300, 500, 100];
+  public pieChartType:string = 'pie';
+ 
+  // events
+  public chartClicked(e:any):void {
+    console.log(e);
+  }
+ 
+  public chartHovered(e:any):void {
+    console.log(e);
+  }
+
+  //pie chart end
 
 }
