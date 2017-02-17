@@ -4,14 +4,11 @@ import {Injectable} from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-import { NavController, NavParams, Slides, ViewController } from 'ionic-angular';
+import { NavController, NavParams, Slides } from 'ionic-angular';
 
 import { Company } from '../../models/company';
 
 import { Services } from '../../providers/services';
-
-
-
 
 
 @Component({
@@ -26,41 +23,23 @@ export class Main {
   CompanyName: string;
   TotalShares: string;
   item_length = 0;
+  show : boolean = false;
   @ViewChild(Slides) slides: Slides;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, private services: Services ) {
-  //  this.http.get('build/json/company.json').map(res => res.json()).subscribe(companies => {
-  //    this.companies = companies;
-  //  }); //(rej) => {console.error("Could not load local data",rej)});
     this.CompanyName = navParams.get('CompanyName');
     this.company = {
-    CompanyName : navParams.get('CompanyName'),
-    OwnerPercent: navParams.get('OwnerPercent'),
-    PublicOwn   : navParams.get('PublicOwn'),
-    PrivateOwn  : navParams.get('PrivateOwn'),
-    LatestDisclosed :  navParams.get('LatestDisclosed'),
-    MarketValueUSD :  navParams.get('MarketValueUSD'),
-    TotalShares    :  navParams.get('TotalShares')
+      CompanyName : navParams.get('CompanyName'),
+      OwnerPercent: navParams.get('OwnerPercent'),
+      PublicOwn   : navParams.get('PublicOwn'),
+      PrivateOwn  : navParams.get('PrivateOwn'),
+      LatestDisclosed :  navParams.get('LatestDisclosed'),
+      MarketValueUSD :  navParams.get('MarketValueUSD'),
+      TotalShares    :  navParams.get('TotalShares')
     } ;
+
   }
 
-
-
-  // title = "Public Market";
-
-  // markets = [
-  //   {
-  //     title: "Public Market",
-  //     description: "The <b>Ionic Component Documentation</b> showcases a number of useful components that are included out of the box with Ionic.",
-  //     image: "assets/img/ica-slidebox-img-1.png",
-  //   },
-  //   {
-  //     title: "Private Market",
-  //     description: "<b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.",
-  //     image: "assets/img/ica-slidebox-img-2.png",
-  //   }
-  // ];
-  //currentIndex = 1;
   slideChanged() {
     let currentIndex = this.slides.getActiveIndex();
     console.log("Current index is", currentIndex);
@@ -78,13 +57,6 @@ export class Main {
     }
   }
 
-  loadCompanies()  {
-  ///  this.http.get('build/json/company.json').map(res => res.json()).subscribe(companies => {
-  //      this.companies = companies;
-  //    }); //(rej) => {console.error("Could not load local data",rej)});
-    console.log('Companies loaded');
-  }
-
   goToCompany(CompanyName: string) {
      this.navCtrl.push(Main, {CompanyName});
    }
@@ -92,8 +64,6 @@ export class Main {
   ionViewDidLoad() {
     console.log('ionViewDidLoad UsersPage');
   }
-
-
 
   searchCompanies(CompanyName: string) {
 
@@ -105,6 +75,7 @@ export class Main {
       }
     }
   }
+}
 
   // // pei chart starts
   // public pieChartLabels:string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
@@ -121,5 +92,3 @@ export class Main {
   // }
 
   //pie chart end
-
-}
