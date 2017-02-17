@@ -3,6 +3,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { Main } from '../pages/main/main';
 import { Side } from '../pages/side/side';
+import { Services } from '../providers/services';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,6 @@ import { Side } from '../pages/side/side';
     Main,
     Side
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [Services, {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}
