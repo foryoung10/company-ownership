@@ -11,24 +11,24 @@
  <ion-slides pager (ionSlideDidChange)="slideChanged()">
   <ion-slide>
   <div style="position: relative; margin: 20px 0 20px 0">
-      <div class="text-xlarge">Oracle</div>
+      <div class="text-xlarge">{{company?.CompanyName}}</div>
       <div style=" position: absolute; top: 20px; right: 20px; color: #828595"><ion-icon name="information-circle"></ion-icon></div>
   </div>
     <ion-grid>
         <ion-grid>
             <ion-row>
               <ion-col width-60 class="text-left text-large ">Total</ion-col>
-              <ion-col width-40 class="text-right text-large">5%</ion-col>
+              <ion-col width-40 class="text-right text-large">{{company?.OwnerPercent}}</ion-col>
             </ion-row>
             <ion-row  class="buffer-bottom">
               <ion-grid>
                 <ion-row>
                   <ion-col width-60 class="text-left text-medium">Public</ion-col>
-                  <ion-col width-40 class="text-right text-medium">5%</ion-col>
+                  <ion-col width-40 class="text-right text-medium">{{company?.PublicOwn}}</ion-col>
                 </ion-row>
                 <ion-row>
                   <ion-col width-60 class="text-left text-medium">Private</ion-col>
-                  <ion-col width-40 class="text-right text-medium">5%</ion-col>
+                  <ion-col width-40 class="text-right text-medium">{{company?.PrivateOwn}}</ion-col>
                 </ion-row>
               </ion-grid>
 
@@ -36,15 +36,15 @@
 
             <ion-row class="buffer-bottom">
               <ion-col width-80 class="text-left text-medium">Last disclosed</ion-col>
-              <ion-col width-20 class="text-right text-medium">3%</ion-col>
+              <ion-col width-20 class="text-right text-medium">{{company?.LatestDisclosed}}</ion-col>
             </ion-row>
             <ion-row  class="buffer-bottom">
               <ion-col width-60 class="text-left text-medium">Market value</ion-col>
-              <ion-col width-40 class="text-right text-medium">$1.1M</ion-col>
+              <ion-col width-40 class="text-right text-medium">{{company?.MarketValueUSD}}</ion-col>
             </ion-row>
             <ion-row>
               <ion-col width-60 class="text-left text-medium">Shareholdings</ion-col>
-              <ion-col width-40 class="text-right text-medium">500,000</ion-col>
+              <ion-col width-40 class="text-right text-medium">{{company?.TotalShares}}</ion-col>
             </ion-row>
           </ion-grid>
       </ion-grid>

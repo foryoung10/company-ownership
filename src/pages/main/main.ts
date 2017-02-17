@@ -26,27 +26,24 @@ export class Main {
   CompanyName: string;
   TotalShares: string;
   item_length = 0;
+  @ViewChild(Slides) slides: Slides;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, private services: Services ) {
   //  this.http.get('build/json/company.json').map(res => res.json()).subscribe(companies => {
   //    this.companies = companies;
   //  }); //(rej) => {console.error("Could not load local data",rej)});
     this.CompanyName = navParams.get('CompanyName');
+    this.company = {
+      CompanyName : navParams.get('CompanyName'),
+      OwnerPercent: navParams.get('OwnerPercent'),
+      PublicOwn   : navParams.get('PublicOwn'),
+      PrivateOwn  : navParams.get('PrivateOwn'),
+      LatestDisclosed :  navParams.get('LatestDisclosed'),
+      MarketValueUSD :  navParams.get('MarketValueUSD'),
+      TotalShares    :  navParams.get('TotalShares')
+    } ;
   }
-  //  ///console.log(this.CompanyName);
-    //this.services.loadCompanies().subscribe(companies => { //      this.companies = companies;
-    //  Main.companies = companies;
-    //  console.log(this.companies.length);
-    //  .item_length = this.companies.length;
 
-    //  });
-    //   console.log(Main.companies.length);
-    //console.log(this.companies.length);
-  //   this.searchCompanies(Main.companies['CompanyName']);
-  //  console.log (this.company['TotalShares']);
-
-
-  @ViewChild(Slides) slides: Slides;
 
 
   // title = "Public Market";
