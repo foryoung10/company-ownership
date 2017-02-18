@@ -49,8 +49,11 @@
     <div *ngIf ="company.CompanyName !== null" >
       <div style="position: relative; margin: 20px 0 20px 0">
           <div class="text-xlarge">{{company?.CompanyName}}</div>
-          <div style=" position: absolute; top: 20px; right: 20px; color: #828595"><ion-icon name="information-circle"></ion-icon></div>
-          <div style=" position: absolute; top: 0px; right: 20px; color: #828595; font-size: 20px"><ion-icon name="heart"></ion-icon></div>
+          <div style=" position: absolute; top: 0px; right: 20px; font-size: 20px"  (click)="company.liked = !company.liked">
+              <ion-icon name="ios-heart-outline" *ngIf="!company.liked"></ion-icon>
+              <ion-icon name="heart" *ngIf="company.liked" style="color: orange"></ion-icon>
+          </div>
+          <div style=" position: absolute; top: 33px; right: 20px; color: #828595"><ion-icon name="information-circle"></ion-icon></div>
       </div>
       <ion-grid>
           <ion-grid>
