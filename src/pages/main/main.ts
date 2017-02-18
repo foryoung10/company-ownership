@@ -38,6 +38,8 @@ export class Main {
       TotalShares    :  navParams.get('TotalShares')
     } ;
 
+    //this.searchCompanies("Apple");
+
   }
 
   slideChanged() {
@@ -48,6 +50,7 @@ export class Main {
   changeSlide(index:number) {
     this.slides.slideTo(index, 500);
   }
+  
   getStyle(index:number) {
     let currentIndex = this.slides.getActiveIndex();
     if(currentIndex === index) {
@@ -66,7 +69,6 @@ export class Main {
   }
 
   searchCompanies(CompanyName: string) {
-
     for(var i = 0; i < Main.companies.length; i++)
     {
       if(Main.companies[i].CompanyName == CompanyName)
@@ -75,6 +77,8 @@ export class Main {
       }
     }
   }
+
+
 }
 
   // // pei chart starts

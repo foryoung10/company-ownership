@@ -27,7 +27,7 @@
         <div>
           <ion-icon name='podium' class="big-icon"></ion-icon>
           <br>
-          <label class="small">Peers</label>
+          <label class="small">Performance</label>
         </div>
       </button>
 
@@ -46,61 +46,89 @@
 <ion-content padding>
  <ion-slides pager (ionSlideDidChange)="slideChanged()">
   <ion-slide>
-    <div *ngIf ="company.CompanyName !== null" >
+    <div *ngIf ="company&&company.CompanyName" >
       <div style="position: relative; margin: 20px 0 20px 0">
           <div class="text-xlarge">{{company?.CompanyName}}</div>
-          <div style=" position: absolute; top: 0px; right: 20px; font-size: 20px"  (click)="company.liked = !company.liked">
+          <div style=" position: absolute; top: -20px; right: 30px; font-size: 20px"  (click)="company.liked = !company.liked">
               <ion-icon name="ios-heart-outline" *ngIf="!company.liked"></ion-icon>
               <ion-icon name="heart" *ngIf="company.liked" style="color: orange"></ion-icon>
           </div>
-          <div style=" position: absolute; top: 33px; right: 20px; color: #828595"><ion-icon name="information-circle"></ion-icon></div>
+          <div style=" position: absolute; top: -20px; right: 0; color: #828595"><ion-icon name="information-circle"></ion-icon></div>
       </div>
+      
       <ion-grid>
-          <ion-grid>
+          <ion-row>
+            <ion-col width-60 class="text-left text-large">Total</ion-col>
+            <ion-col width-40 class="text-right text-large">{{company?.OwnerPercent }} %   </ion-col>
+          </ion-row>
+          <ion-row  class="buffer-bottom">
+            <ion-grid>
               <ion-row>
-                <ion-col width-60 class="text-left text-large">Total</ion-col>
-                <ion-col width-40 class="text-right text-large">{{company?.OwnerPercent }} %   </ion-col>
+                <ion-col width-60 class="text-left text-small">Public</ion-col>
+                <ion-col width-40 class="text-right text-small">{{company?.PublicOwn}} %</ion-col>
               </ion-row>
-              <ion-row  class="buffer-bottom">
-                <ion-grid>
-                  <ion-row>
-                    <ion-col width-60 class="text-left text-medium">Public</ion-col>
-                    <ion-col width-40 class="text-right text-medium">{{company?.PublicOwn}} %</ion-col>
-                  </ion-row>
-                  <ion-row>
-                    <ion-col width-60 class="text-left text-medium">Private</ion-col>
-                    <ion-col width-40 class="text-right text-medium">{{company?.PrivateOwn}} %</ion-col>
-                  </ion-row>
-                </ion-grid>
+              <ion-row>
+                <ion-col width-60 class="text-left text-small">Others</ion-col>
+                <ion-col width-40 class="text-right text-small">{{company?.PrivateOwn}} %</ion-col>
               </ion-row>
+            </ion-grid>
+          </ion-row>
 
-              <ion-row class="buffer-bottom">
-                <ion-col width-80 class="text-left text-medium">Last disclosed</ion-col>
-                <ion-col width-20 class="text-right text-medium">{{company?.LatestDisclosed}}</ion-col>
-              </ion-row>
-              <ion-row  class="buffer-bottom">
-                <ion-col width-60 class="text-left text-medium">Market value</ion-col>
-                <ion-col width-40 class="text-right text-medium">${{company?.MarketValueUSD}}</ion-col>
-              </ion-row>
-              <ion-row>
-                <ion-col width-60 class="text-left text-medium">Shareholdings</ion-col>
-                <ion-col width-40 class="text-right text-medium">{{company?.TotalShares}}</ion-col>
-              </ion-row>
-          </ion-grid>
+          <ion-row class="buffer-bottom">
+            <ion-col width-80 class="text-left text-medium">Last disclosed</ion-col>
+            <ion-col width-20 class="text-right text-medium">{{company?.LatestDisclosed}}</ion-col>
+          </ion-row>
+          <ion-row  class="buffer-bottom">
+            <ion-col width-60 class="text-left text-medium">Market value</ion-col>
+            <ion-col width-40 class="text-right text-medium">${{company?.MarketValueUSD}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col width-60 class="text-left text-medium">Shareholdings</ion-col>
+            <ion-col width-40 class="text-right text-medium">{{company?.TotalShares}}</ion-col>
+          </ion-row>
       </ion-grid>
+      
     </div>
   </ion-slide>
   <ion-slide>
-    Who Owns
+    <h2 class="buffer-top">Who Owns</h2>
+    <img src="/img/Who_Owns.png" />
+    
   </ion-slide>
   <ion-slide>
-    Peers
-
-    <img src="https://www.google.com/finance/getchart?q=APPL&p=5Y&i=86400" />
+    
+    <h2 class="buffer-top">Performance</h2>
+    <img src="https://www.google.com/finance/getchart?q=AAPL&p=5Y&i=86400" />
+    <ion-grid>
+      <ion-row>
+        <ion-col width-70 class="text-left text-small">5 - Year Return</ion-col>
+        <ion-col width-30 class="text-right text-small">9.5 %</ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-slide>
   <ion-slide>
-    News
-
+    <h2 class="buffer-top">News</h2>
+    <br />
+    <article class="text-left">
+     Oracle CEO Mark Hurd slams Amazon cloud as 
+      'old' and says his company is gaining share
+      <br />
+      <div class="sub-title">BloomBerg &nbsp;-&nbsp; 14 Feb 2017</div>
+      <br />
+      <br />
+      As promised, Oracle just filed its appeal in its
+      massive case against Google
+      <br />
+      <div class="sub-title">BloomBerg &nbsp;-&nbsp; 12 Feb 2017</div>
+      <br />
+      <br />
+      Oracle to Help Businesses Better Support 
+      Global Operations with Seamless Tax 
+      Reporting
+      <div class="sub-title">BloomBerg &nbsp;-&nbsp; 11 Feb 2017</div>
+      
+       
+    </article>
 
   </ion-slide>
   </ion-slides>

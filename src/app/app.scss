@@ -45,13 +45,14 @@ $tool-bar-color: #6a89c6;
 .text-xlarge { font-size: 54px; }
 .text-large { font-size: 32px; }
 .text-medium { font-size: 24px; }
+.text-small { font-size: 20px; }
 
 .buffer-top-bottom {
 	margin: 20px 0 20px 0;
 }
 
 .buffer-top {
-	margin-top: 20px;
+	margin-top: 20px !important;
 }
 
 .buffer-bottom {
@@ -85,11 +86,23 @@ $tool-bar-color: #6a89c6;
   display: block; /*** icons on the texts ***/
   /*font-size: 36px;*/ /*** increase size of icons ***/
   margin-bottom: 3px;
+
 }
+
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+	  color: #c1c1c1;
+}
+
 
 .big-icon {
 	font-size: 36px !important;
-	margin-left: 10px;
-	margin-right: 10px;
+	margin-left: 8px;
+	margin-right: 8px;
 }
 .small {font-size: 11px;}
+
+.sub-title {
+	color: #797979;
+	margin-top: 10px;
+	font-size: 11px;
+}

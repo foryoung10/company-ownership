@@ -31,8 +31,13 @@ export class MyApp implements AfterViewInit {
   //     }); //(rej) => {console.error("Could not load local data",rej)});
     this.services.loadCompanies().subscribe(companies => { //      this.companies = companies;
       this.companies = companies;
-       }); //(rej) => {console.error("Could not load local data",rej)});
-
+      for(let c of companies){
+            if(c.CompanyName === "Apple"){
+              this.nav.push(Main, c);
+            }
+        }
+     }); //(rej) => {console.error("Could not load local data",rej)});
+    
   }
 
   pages: Array<{title: string, component: any}>;
@@ -48,6 +53,7 @@ export class MyApp implements AfterViewInit {
       { title: 'Main', component: Main },
       { title: 'Side', component: Side }
     ];
+
 
 }
 
@@ -69,6 +75,7 @@ export class MyApp implements AfterViewInit {
     this.nav.push(Main, {CompanyName, OwnerPercent, PublicOwn, PrivateOwn, LatestDisclosed, MarketValueUSD, TotalShares});
 
   }
+
 ionViewDidLoad() {
     this.setFilteredCompanies();
 
